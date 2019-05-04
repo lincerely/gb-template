@@ -2,7 +2,7 @@
 ;	Header
 ;-------------
 
-SECTION "Copy Data",HOME[$28] ;copy DMA routine to HRAM
+SECTION "Copy Data",ROM0[$28] ;copy DMA routine to HRAM
 COPY_DATA:
 	pop hl
 	push bc
@@ -19,31 +19,31 @@ COPY_DATA:
 	or  c
 	jr  nz,.copy_data_loop
 	pop bc
-	jp  [hl]
+	jp  hl
 	reti
 
-SECTION "VBlank IRQ",HOME[$40]
+SECTION "VBlank IRQ",ROM0[$40]
 	ld  a,$1
 	ld  [vblank_flag],a
 	reti
 
-SECTION	"LCD IRQ Vector",HOME[$48]
+SECTION	"LCD IRQ Vector",ROM0[$48]
 LCD_VECT:
 	reti
 
-SECTION	"Timer IRQ Vector",HOME[$50]
+SECTION	"Timer IRQ Vector",ROM0[$50]
 TIMER_VECT:
 	reti
 
-SECTION	"Serial IRQ Vector",HOME[$58]
+SECTION	"Serial IRQ Vector",ROM0[$58]
 SERIAL_VECT:
 	reti
 
-SECTION	"Joypad IRQ Vector",HOME[$60]
+SECTION	"Joypad IRQ Vector",ROM0[$60]
 JOYPAD_VECT:
 	reti
 
-SECTION "Start",HOME[$100]
+SECTION "Start",ROM0[$100]
 	nop
 	jp  START
 

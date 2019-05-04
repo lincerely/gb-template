@@ -4,16 +4,16 @@
 ; Includes
 ;-------------
 	
-	INCLUDE "hardware.asm"
-  INCLUDE "header.asm"
-	INCLUDE "tiles.asm"
-  INCLUDE "map.asm"
+INCLUDE "hardware.asm"
+INCLUDE "header.asm"
+INCLUDE "tiles.asm"
+INCLUDE "map.asm"
 
 ;-------------
 ; Start
 ;-------------
 
-SECTION "Program Start",HOME[$150]
+SECTION "Program Start",ROM0[$150]
 START:
 	ei				 ;enable interrupts
 	ld  sp,$FFFE
@@ -192,7 +192,7 @@ JOY_FALSE:
 	ld  a,$0
 	ret
 
-SECTION "RAM Vars",BSS[$C000]
+SECTION "RAM Vars",WRAM0[$C000]
 vblank_flag:
 db
 vblank_count:

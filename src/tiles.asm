@@ -4,7 +4,7 @@
 
 TILE_COUNT EQU 31*16 ;16 bytes each
 
-SECTION "Tiles",HOME
+SECTION "Tiles",ROM0
 
 TILE_DATA:
 DB $00,$00,$00,$00,$00,$00,$00,$00
